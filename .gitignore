@@ -1,0 +1,10 @@
+# Configuracion privada de NetBeans (especifica de cada maquina)
+nbproject/private/
+
+# Carpetas generadas al compilar/desplegar
+build/
+dist/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
