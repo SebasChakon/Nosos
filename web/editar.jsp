@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.usb.notas.modelo.Estudiante" %>
+<%@ page import="Modelo.Estudiante" %>
 <%
     Estudiante estudiante = (Estudiante) request.getAttribute("estudiante");
     String error = (String) request.getAttribute("error");
@@ -34,7 +34,7 @@
         <p class="error" style="margin-bottom: 12px;"><%= error %></p>
         <% } %>
 
-        <form action="<%= request.getContextPath() %>/estudiantes/actualizar/<%= estudiante.getId() %>" method="post" class="form-grid">
+        <form action="<%= request.getContextPath() %>/controlador?accion=actualizar&id=<%= estudiante.getId() %>" method="post" class="form-grid">
 
             <div class="field full">
                 <label for="nombre">Nombre del estudiante</label>
@@ -62,7 +62,7 @@
             </div>
 
             <div class="actions full">
-                <a href="<%= request.getContextPath() %>/estudiantes/listado" class="btn btn-secondary">Cancelar</a>
+                <a href="<%= request.getContextPath() %>/controlador?accion=listado" class="btn btn-secondary">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
         </form>

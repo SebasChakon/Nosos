@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.usb.notas.modelo.Estudiante" %>
+<%@ page import="Modelo.Estudiante" %>
 <%@ page import="java.util.List" %>
 <%
     List<Estudiante> estudiantes = (List<Estudiante>) request.getAttribute("estudiantes");
@@ -19,8 +19,8 @@
     <div class="topbar-inner">
         <h1>Gestión de Notas Académicas</h1>
         <nav>
-            <a href="<%= request.getContextPath() %>/estudiantes/" class="nav-link">Registrar</a>
-            <a href="<%= request.getContextPath() %>/estudiantes/listado" class="nav-link active">Consultar registros</a>
+            <a href="<%= request.getContextPath() %>/controlador" class="nav-link">Registrar</a>
+            <a href="<%= request.getContextPath() %>/controlador?accion=listado" class="nav-link active">Consultar registros</a>
         </nav>
     </div>
 </header>
@@ -65,8 +65,8 @@
                     <td><span class="badge-small <%= claseEstado %>"><%= e.getEstado() %></span></td>
                     <td><%= e.getResultadoCualitativo() %></td>
                     <td class="row-actions">
-                        <a href="<%= request.getContextPath() %>/estudiantes/editar/<%= e.getId() %>" class="btn btn-small btn-secondary">Editar</a>
-                        <a href="<%= request.getContextPath() %>/estudiantes/eliminar/<%= e.getId() %>" class="btn btn-small btn-danger">Eliminar</a>
+                        <a href="<%= request.getContextPath() %>/controlador?accion=editar&id=<%= e.getId() %>" class="btn btn-small btn-secondary">Editar</a>
+                           <a href="<%= request.getContextPath() %>/controlador?accion=eliminar&id=<%= e.getId() %>" class="btn btn-small btn-danger">Eliminar</a>
                     </td>
                 </tr>
                 <% } %>

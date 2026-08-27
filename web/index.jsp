@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.usb.notas.modelo.Estudiante" %>
+<%@ page import="Modelo.Estudiante" %>
 <%
     Estudiante estudiante = (Estudiante) request.getAttribute("estudiante");
     if (estudiante == null) estudiante = new Estudiante();
@@ -21,8 +21,8 @@
     <div class="topbar-inner">
         <h1>Gestión de Notas Académicas</h1>
         <nav>
-            <a href="<%= request.getContextPath() %>/estudiantes/" class="nav-link active">Registrar</a>
-            <a href="<%= request.getContextPath() %>/estudiantes/listado" class="nav-link">Consultar registros</a>
+            <a href="<%= request.getContextPath() %>/controlador" class="nav-link active">Registrar</a>
+            <a href="<%= request.getContextPath() %>/controlador?accion=listado" class="nav-link">Consultar registros</a>
         </nav>
     </div>
 </header>
@@ -37,7 +37,7 @@
         <p class="error" style="margin-bottom: 12px;"><%= error %></p>
         <% } %>
 
-        <form action="<%= request.getContextPath() %>/estudiantes/calcular" method="post" class="form-grid">
+    <form action="<%= request.getContextPath() %>/controlador" method="post" class="form-grid">
 
             <div class="field full">
                 <label for="nombre">Nombre del estudiante</label>
@@ -71,8 +71,8 @@
             </div>
 
             <div class="actions full">
-                <button type="submit" formaction="<%= request.getContextPath() %>/estudiantes/calcular" class="btn btn-secondary">Calcular</button>
-                <button type="submit" formaction="<%= request.getContextPath() %>/estudiantes/registrar" class="btn btn-primary">Guardar</button>
+                <button type="submit" name="accion" value="calcular" class="btn btn-secondary">Calcular</button>
+                <button type="submit" name="accion" value="registrar" class="btn btn-primary">Guardar</button>
             </div>
         </form>
     </section>
